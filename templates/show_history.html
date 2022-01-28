@@ -1,0 +1,53 @@
+<html>
+	<head>
+		<title>Purchase History for {{ data['name'][0] }}</title>
+		<link rel="stylesheet" type="text/css" href="static/style.css">
+	</head>
+	<body bgcolor="#007099">
+    	<div class="topnav">
+			<div class="topnav-left">Dashboard</div>
+			<a href="customer_dashboard.html">Purchase Items</a>
+			<a class="active" href="view_history.html">View History</a>
+			<a class="topnav-right" href="logout.html">Logout</a>
+			<div class="topnav-right">Hello, {{data['name']}} (ID: {{data['user_id']}})</div>
+		</div>
+		<p style="color:ivory"> {{ data['message'] }} </p>
+		<form class="floating">
+			<label for="total"><b>Total spent to date: ${{ data['total_spent'] }}</b></label>
+			<br><br>
+			<label for="total"><b>Purchase History</b></label>
+			{% if data['history']|length == 0 %}
+			<p> No purchases to show. </p>
+			{% else %}
+			<div class="itemlist">
+				<p>
+				<div class="itemname">
+					<label for="iname" style="color:peru"><b>Items</b></label>
+				</div>
+				<div class="amounttopurchase">
+					<label for="iprice" style="color:peru"><b>Price</b></label>
+				</div>
+				</p>
+				<br>
+				<br>
+				{% for purchase in data['history'] %}
+				<p>
+					<div class="itemname">
+						<label for="iname"><b>{{ purchase[0] }}</b></label>
+					</div>
+					<div class="amounttopurchase">
+						<label for="iprice"><b>{{ purchase[2] }}</b></label>
+					</div>
+					<div class="itemstatus">
+						<label for="iamount"><b>Quantity: {{ purchase[1] }}</b></label>
+					</div>
+				</p>
+				<br>
+				<br>
+				{% endfor %}
+			</div>
+			{% endif %}
+			<input type="hidden" name="placeholder" value="0" >
+		</form>
+	</body>
+</html>

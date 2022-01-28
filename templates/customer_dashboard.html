@@ -1,0 +1,29 @@
+<html>
+	<head>
+		<title>Customer Dashboard</title>
+		<link rel="stylesheet" type="text/css" href="static/style.css">
+	</head>
+	<body bgcolor="#007099">
+		<div class="topnav">
+			<div class="topnav-left">Dashboard</div>
+			<a class="active" href="customer_dashboard.html">Purchase Items</a>
+			<a href="view_history.html">View History</a>
+			<a class="topnav-right" href="logout.html">Logout</a>
+			<div class="topnav-right">Hello, {{data['name']}} (ID: {{data['user_id']}})</div>
+		</div>
+		<p style="color:ivory"> {{ data['message'] }} </p>
+		<form class="floating" action="/purchase_items.html" method="post">
+			<label for="sname"><b>Choose store to purchase from:</b></label>
+			<div class="custom-select" style="width:90%">
+				<select name="store_id">
+					<option value="-1">Choose Store...</option>
+					{% for store in data['store_id_name'] %}
+					<option value="{{ store[0] }}">{{ store[1] }}</option>
+					{% endfor %}
+				</select><br>
+			</div>
+			<button type="submit">Visit Store</button>
+		</form>
+		<script src="static/customer_dashboard.js"></script>
+    </body>
+</html>

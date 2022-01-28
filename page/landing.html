@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <title>Home Page</title>
+    </head>
+    <body>
+      <p> {{success}} </p>
+      <h2> Create an account. </h2>
+      <h3>Customer account.</h3>
+      <form action="/register_customer.html" method="post">
+	Enter username: <input type="text" placeholder="enter" name="username"> <br>
+	Enter password: <input type="password" name="password"> <br>
+	Enter name: <input type="text" name="name"> <br>
+	Enter credit card num: <input type="text" name="credit_card_num"> <br>
+	Enter street address: <input type="text" name="street_address"> <br>
+	Enter city: <input type="text" name="city"> <br>
+	Enter state: <input type="text" name="state" maxlength="2"> <br>
+	<button type="submit">Create account</button>
+      </form>
+
+      <h3>Employee account.</h3>
+      <form action="/register_employee.html" method="post">
+	Enter username: <input type="text" placeholder="enter" name="username"> <br>
+	Enter password: <input type="password" name="password"> <br>
+	Enter name: <input type="text" name="name"> <br>
+	Account type: <input type="radio" name="position" value="retail">Retail
+	<input type="radio" name="position" value="manager">Manager<br>
+	<button type="submit">Create account</button>
+      </form>
+
+      <br> <br>
+      <h2>Login.</h2>
+      <form action="/login.html" method="post">
+	Enter username: <input type="text" placeholder="enter" name="username"> <br>
+	Enter password: <input type="password" name="password"> <br>
+	Account type: <input type="radio" name="role" value="customer">   Customer <input type="radio" name="role" value="employee"> Employee <br>
+	<button type="submit">Login</button>
+      </form>
+      
+      {#<!--
+        <p>Welcome to Big Jungle, an online store that just sells books.</p>
+        <p>Here is a list of the books you can buy:</p>
+
+	<form action="." method="post">
+        {% if template_data['books']|length == 0 %}
+        <p style="color: red;">All books are sold out!</p>
+        {% else %}
+        <ul>
+            {% for book in template_data['books'] %}
+            <li>
+                {{ book[1] }}
+                <button name="buy-book" value="{{book[0]}}">buy</button>
+            </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        </form>
+	-->
+      #}
+    </body>
+</html>

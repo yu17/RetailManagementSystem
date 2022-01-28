@@ -1,0 +1,38 @@
+<html>
+	<head>
+		<title>Purchase Item</title>
+		<link rel="stylesheet" type="text/css" href="static/style.css">
+	</head>
+	<body bgcolor="#007099">
+    	<div class="topnav">
+			<div class="topnav-left">Dashboard</div>
+			<a class="active" href="customer_dashboard.html">Purchase Items</a>
+			<a href="view_history.html">View History</a>
+			<a class="topnav-right" href="logout.html">Logout</a>
+			<div class="topnav-right">Hello, {{data['name']}} (ID: {{data['user_id']}})</div>
+		</div>
+		<p style="color:ivory"> {{ data['message'] }} </p>
+		<form class="floating" action="/process_purchase.html" method="post">
+			<label for="purchase"><b>You are visiting store ID: {{ data['store_id'] }}.</b></label>
+			<br><br>
+			<label for="items"><b>Items:</b></label>
+			<div class="itemlist">
+				{% for item in data['item_info'] %}
+				<div class="itemrow">
+					<div class="itemname">
+						<label for="iname"><b>{{ item[1] }}</b></label>
+					</div>
+					<div class="amounttopurchase">
+						<input type="number" name="{{ item[0] }}_quantity" min="0" max="{{ item[3] }}" value="0">
+					</div>
+					<div class="itemstatus">
+						<label for="istatus"><b>Price: {{ item[2] }} Stock: {{ item[3] }}</b></label>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+			<input type="hidden" name="store_id" value="{{ data['store_id'] }}" >
+			<button type="submit">Submit</button>
+		</form>
+	</body>
+</html>

@@ -1,0 +1,241 @@
+.topnav {
+	background-color: navy;
+	overflow: hidden;
+}
+
+.topnav-left {
+	background-color: dodgerblue;
+	float: left;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 17px;
+}
+
+.topnav-right {
+	float: right;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 17px;
+}
+
+.topnav a {
+	float: left;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 17px;
+}
+
+.topnav-right a {
+	float: right;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 17px;
+}
+
+.topnav a:hover {
+	background-color: paleturquoise;
+	color: darkgreen;
+}
+
+.topnav a.active {
+	background-color: lightskyblue;
+	color: white;
+}
+
+body, html {
+	height: 100%;
+	margin: 0;
+	font-family: Arial;
+}
+
+.tablink {
+	background-color: #555;
+	color: white;
+	float: left;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 14px 16px;
+	font-size: 17px;
+	width: 25%;
+}
+
+.tablink:hover {
+	background-color: #777;
+}
+
+.tabcontent {
+	color: white;
+	display: none;
+	padding: 100px 20px;
+	height: 100%;
+}
+
+form {
+	border: 2px solid #f1f1f1;
+	width: 50%;
+}
+
+form[class=floating] {
+	border: 2px solid #f1f1f1;
+	background-color: azure;
+	width: 50%;
+	align-items: center;
+	left: 25%;
+}
+
+input[type=text], input[type=password]{
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+}
+
+button[type=submit] {
+	background-color: #4CAF50;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	cursor: pointer;
+	width: 80%;
+	font-size: 20px;
+	font-weight: bold;
+	align-items: center;
+	left: 50%;
+}
+
+button:hover {
+	opacity: 0.8;
+}
+
+#Login {background-color: #007099;}
+#Customer_Register {background-color: #007099;}
+#Employee_Register {background-color: #007099;}
+
+
+.custom-select {
+	position: relative;
+	font-family: Arial;
+}
+
+.custom-select select {
+	display: none;
+}
+.select-selected {
+	background-color: DodgerBlue;
+}
+
+.select-selected:after {
+	position: absolute;
+	content: "";
+	top: 14px;
+	right: 10px;
+	width: 0;
+	height: 0;
+	border: 6px solid transparent;
+	border-color: #fff transparent transparent transparent;
+}
+
+.select-selected.select-arrow-active:after {
+	border-color: transparent transparent #fff transparent;
+	top: 7px;
+}
+
+.select-items div,.select-selected {
+	color: #ffffff;
+	padding: 8px 16px;
+	border: 1px solid transparent;
+	border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+	cursor: pointer;
+}
+
+.select-items {
+	position: absolute;
+	background-color: DodgerBlue;
+	top: 100%;
+	left: 0;
+	right: 0;
+	z-index: 99;
+}
+
+.select-hide {
+	display: none;
+}
+.select-items div:hover, .same-as-selected {
+	background-color: rgba(0, 0, 0, 0.1);
+}
+
+input[type=number]{
+	width: 100%;
+	padding: 12px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	resize: vertical;
+}
+
+.itemlist {
+	border-radius: 5px;
+	padding: 20px;
+	resize: vertical;
+}
+
+.itemrow {
+	float: left;
+	width: 100%;
+	margin-top: 8px;
+}
+
+.itemname {
+	float: left;
+	width: 50%;
+	margin-top: 5px;
+	margin-left: 10%;
+	font-size: 17px;
+}
+
+.itemstatus {
+	float: left;
+	width: 50%;
+	margin-top: 2px;
+	margin-left: 12%;
+	font-size: 12px;
+}
+
+.amounttopurchase {
+	float: right;
+	width: 20%;
+	margin-top: 5px;
+	margin-right: 10%;
+}
+
+/* Clear floats after the columns */
+.itemrow:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.small-button {
+	background-color: midnightblue;
+	color: white;
+	margin: 2px 0;
+	border: none;
+	cursor: pointer;
+	width: 50%;
+	font-size: 13px;
+	font-weight: normal;
+	align-items: center;
+	left: 50%;
+}

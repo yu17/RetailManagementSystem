@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>Analytics</title>
+    </head>
+    <body>
+      <p> {{data['message']}} </p>
+      <p> Hello. You are logged in as employee: {{data['name']}}, {{data['position']}} </p>
+
+      <ul>
+	<li> Most popular item: {{ data['popular_item'] }} </li>
+	<li> Most profitable item: {{ data['profitable_item'] }} </li>
+	<li> Best customer: {{ data['best_customer'] }} </li>
+      </ul>
+      
+      <form action="/employee_dashboard.html", method="post">
+	<button type="submit">Return to dashboard</button>
+      </form>
+      
+      <form action="/logout.html" method="post">
+	<button type="submit">Logout</button>
+      </form>
+      
+      {#<!--
+        <p>Welcome to Big Jungle, an online store that just sells books.</p>
+        <p>Here is a list of the books you can buy:</p>
+
+	<form action="." method="post">
+        {% if template_data['books']|length == 0 %}
+        <p style="color: red;">All books are sold out!</p>
+        {% else %}
+        <ul>
+            {% for book in template_data['books'] %}
+            <li>
+                {{ book[1] }}
+                <button name="buy-book" value="{{book[0]}}">buy</button>
+            </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        </form>
+	-->
+      #}
+    </body>
+</html>

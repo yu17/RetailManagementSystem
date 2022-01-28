@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<title>New Item</title>
+	<link rel="stylesheet" type="text/css" href="static/style.css">
+	</head>
+	<body bgcolor="#007099">
+		<div class="topnav">
+			<div class="topnav-left">Dashboard</div>
+			<a href="create_store.html">Create Store</a>
+			<a href="show_stores.html">Show Stores</a>
+			<a href="stock_item.html">Stock Item</a>
+			<a href="trash_item.html">Trash Item</a>
+			<a class="active" href="new_item.html">Create Item</a>
+			<a href="view_analytics.html">View Analytics</a>
+			<a class="topnav-right" href="logout.html">Logout</a>
+			<div class="topnav-right">Hello, {{data['name']}} (position: {{data['position']}})</div>
+		</div>
+		<form class="floating" action="/new_item.html" method="post">
+			<h2>Creating a New Item...</h2>
+			<label for="iname"><b>Item Name:</b></label>
+			<input name="item_name" type="text"><br>
+			<label for="iprice"><b>Item Price:</b></label>
+			<input name="item_price" type="number" step="0.01"><br>
+			<button type="submit">Create</button>
+		</form>
+	</body>
+</html>

@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <title>Purchase Item</title>
+  </head>
+  <body>
+    <p> {{data['message']}} </p>
+    <p> Hello. You are logged in as customer: {{data['name']}}  {{data['user_id']}} </p>
+
+    Purchase items from {{ data['store_id'] }}.
+    <form action="/process_purchase.html" method="post">
+    Items:
+    <ul>
+      {% for item in data['item_info'] %}
+      <li>
+	{{ item[1] }} Price: {{ item[2] }} Stock: {{ item[3] }}<input type="number" name="{{ item[0] }}_quantity" min="0" max="{{ item[3] }}" value="0">
+      </li>
+      {% endfor %}
+    </ul>
+    <input type="hidden" name="store_id" value="{{ data['store_id'] }}" >
+    <button type="submit">Submit</button>
+</form>
+
+
+<form action="/customer_dashboard.html" method="post">
+  <button type="submit">Return dashboard</button>
+</form>
+
+<form action="/logout.html" method="post">
+  <button type="submit">Logout</button>
+</form>
+
+{#<!--
+      <p>Welcome to Big Jungle, an online store that just sells books.</p>
+<p>Here is a list of the books you can buy:</p>
+
+<form action="." method="post">
+  {% if template_data['books']|length == 0 %}
+  <p style="color: red;">All books are sold out!</p>
+  {% else %}
+  <ul>
+    {% for book in template_data['books'] %}
+    <li>
+      {{ book[1] }}
+      <button name="buy-book" value="{{book[0]}}">buy</button>
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+</form>
+-->
+#}
+</body>
+</html>

@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <title>Stock Item</title>
+    </head>
+    <body>
+      <p> {{data['message']}} </p>
+      <p> Hello. You are logged in as employee: {{data['name']}}, {{data['position']}} </p>
+
+      {# choose item #}
+      {% if data['choose_item'] == True %}
+      <form action="/trash_item.html" method="post">
+	Select item:
+	<select name="item_id">
+	  {% for item in data['item_list'] %}
+	  <option value="{{ item[0] }}">{{ item[1] }}</option> <br>
+	  {% endfor %}
+	</select>
+	<button type="submit">Submit</button>
+      </form>
+
+      {# choose drop quantity for each store #}
+      {% elif data['choose_quantities'] == True %}
+
+      {% if data['store_quantities']|length == 0 %}
+      <p> The store does not carry this item. Nothing to drop. </p>
+      {% else %}
+      <form action="/trash_item.html" method="post">
+	Dropping item: {{ data['item_name'] }} <br>
+	Stores:
+	<ul>
+	  {% for tuple in data['store_quantities'] %}
+	  <li>
+	    {{ tuple[1] }} current stock: {{ tuple[2] }} <input type="number" name="{{ tuple[0] }}_quantity" min="0" max="{{ tuple[2] }}" value="0">
+	  </li>
+	  {% endfor %}
+	</ul>
+	<input type="hidden" name="ready to drop" value="true">
+	<input type="hidden" name="item_id" value="{{ data['item_id'] }}">
+	<button type="submit">Submit</button>
+      </form>
+      {% endif %}
+      {% endif %}
+      
+      <form action="/employee_dashboard.html" method="post">
+	<button type="submit">Return dashboard</button>
+      </form>
+      
+      <form action="/logout.html" method="post">
+	<button type="submit">Logout</button>
+      </form>
+      
+      {#<!--
+        <p>Welcome to Big Jungle, an online store that just sells books.</p>
+        <p>Here is a list of the books you can buy:</p>
+
+	<form action="." method="post">
+        {% if template_data['books']|length == 0 %}
+        <p style="color: red;">All books are sold out!</p>
+        {% else %}
+        <ul>
+            {% for book in template_data['books'] %}
+            <li>
+                {{ book[1] }}
+                <button name="buy-book" value="{{book[0]}}">buy</button>
+            </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        </form>
+	-->
+      #}
+    </body>
+</html>

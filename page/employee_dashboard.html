@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>Employee Dashboard</title>
+    </head>
+    <body>
+      <p> {{data['message']}} </p>
+      <p> Hello. You are logged in as employee: {{data['name']}}, {{data['position']}} </p>
+
+      <form action="/create_store.html" method="post">
+	<button type="submit">Create a new store</button>
+      </form>
+
+      <form action="/show_stores.html" method="post">
+	<button type="submit">Show stores</button>
+      </form>
+
+      <form action="/stock_item.html" method="post">
+	<button type="submit">Stock item</button>
+      </form>
+
+      <form action="/trash_item.html" method="post">
+	<button type="submit">Trash item</button>
+      </form>
+      
+      <form action="/new_item.html" method="post">
+	<button type="submit">Create new item</button>
+      </form>
+
+      <form action="/view_analytics.html" method="post">
+	<button type="submit">View analytics</button>
+      </form>
+      
+      
+      <form action="/logout.html" method="post">
+	<button type="submit">Logout</button>
+      </form>
+      
+      {#<!--
+        <p>Welcome to Big Jungle, an online store that just sells books.</p>
+        <p>Here is a list of the books you can buy:</p>
+
+	<form action="." method="post">
+        {% if template_data['books']|length == 0 %}
+        <p style="color: red;">All books are sold out!</p>
+        {% else %}
+        <ul>
+            {% for book in template_data['books'] %}
+            <li>
+                {{ book[1] }}
+                <button name="buy-book" value="{{book[0]}}">buy</button>
+            </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        </form>
+	-->
+      #}
+    </body>
+</html>

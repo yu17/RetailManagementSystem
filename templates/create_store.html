@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<title>Create Store</title>
+	<link rel="stylesheet" type="text/css" href="static/style.css">
+	</head>
+	<body bgcolor="#007099">
+		<div class="topnav">
+			<div class="topnav-left">Dashboard</div>
+			<a class="active" href="create_store.html">Create Store</a>
+			<a href="show_stores.html">Show Stores</a>
+			<a href="stock_item.html">Stock Item</a>
+			<a href="trash_item.html">Trash Item</a>
+			<a href="new_item.html">Create Item</a>
+			<a href="view_analytics.html">View Analytics</a>
+			<a class="topnav-right" href="logout.html">Logout</a>
+			<div class="topnav-right">Hello, {{data['name']}} (position: {{data['position']}})</div>
+		</div>
+		<form class="floating" action="/create_store.html" method="post">
+			<h2>Creating a New Store...</h2>
+			<label for="sname"><b>Store Name:</b></label>
+			<input name="store_name" type="text"><br>
+			<label for="sadd"><b>Store Address:</b></label>
+			<input name="address" type="text"><br>
+			<label for="scity"><b>City:</b></label><br>
+			<input type="text" name="city"><br>
+			<label for="sstate"><b>State:</b></label><br>
+			<input type="text" name="state"> <br>
+			<button type="submit">Create</button>
+		</form>
+	</body>
+</html>

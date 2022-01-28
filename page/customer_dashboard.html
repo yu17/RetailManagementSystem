@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title>Customer Dashboard</title>
+    </head>
+    <body>
+      <p> {{ data['message'] }} </p>
+      <p> Hello. You are logged in as customer: {{data['name']}} ID: {{data['user_id']}} </p>
+
+      <form action="/purchase_items.html" method="post">
+	Choose store to purchase from:
+	<select name="store_id">
+	  {% for store in data['store_id_name'] %}
+	  <option value="{{ store[0] }}">{{ store[1] }}</option>
+	  {% endfor %}
+	</select> <br>
+	<button type="submit">Purchase items from store</button>
+      </form>
+
+      <form action="/view_history.html" method="post">
+	<button type="submit">View Purchase History</button>
+      </form>
+
+      <form action="/logout.html" method="post">
+	<button type="submit">Logout</button>
+      </form>
+
+      
+      {#<!--
+        <p>Welcome to Big Jungle, an online store that just sells books.</p>
+        <p>Here is a list of the books you can buy:</p>
+
+	<form action="." method="post">
+        {% if template_data['books']|length == 0 %}
+        <p style="color: red;">All books are sold out!</p>
+        {% else %}
+        <ul>
+            {% for book in template_data['books'] %}
+            <li>
+                {{ book[1] }}
+                <button name="buy-book" value="{{book[0]}}">buy</button>
+            </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        </form>
+	-->
+      #}
+    </body>
+</html>

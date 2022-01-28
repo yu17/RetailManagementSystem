@@ -1,0 +1,66 @@
+<html>
+	<head>
+		<title>Store {{ data['store_info'][0] }}</title>
+		<link rel="stylesheet" type="text/css" href="static/style.css">
+	</head>
+	<body bgcolor="#007099">
+		<div class="topnav">
+			<div class="topnav-left">Dashboard</div>
+			<a href="create_store.html">Create Store</a>
+			<a class="active" href="show_stores.html">Show Stores</a>
+			<a href="stock_item.html">Stock Item</a>
+			<a href="trash_item.html">Trash Item</a>
+			<a href="new_item.html">Create Item</a>
+			<a href="view_analytics.html">View Analytics</a>
+			<a class="topnav-right" href="logout.html">Logout</a>
+			<div class="topnav-right">Hello, {{data['name']}} (position: {{data['position']}})</div>
+		</div>
+		<p style="color:ivory"> {{ data['message'] }} </p>
+		<form class="floating" action="/show_stores.html" method="post">
+			<p><b>General Information:</b></p>
+			<ul style="list-style: none">
+				{% for val in data['store_info'] %}
+				<li>
+					{{ val }}
+				</li>
+				{% endfor %}
+			</ul>
+			<label for="total"><b>Revenue to date: ${{ data['revenue'] }}</b></label>
+			<br><br>
+			{% if data['item_list']|length == 0 %}
+			<p> No items to show. </p>
+			{% else %}
+			<p>
+				<div class="itemname">
+					<label for="iname" style="color:peru"><b>Items</b></label>
+				</div>
+				<div class="amounttopurchase">
+					<label for="iprice" style="color:peru"><b>Price</b></label>
+				</div>
+			</p>
+			<br>
+			<br>
+			<div class="itemlist">
+				{% for tuple in data['item_list'] %}
+				<p>
+				<div class="itemrow">
+					<div class="itemname">
+						<label for="iname"><b>{{ tuple[0] }}</b></label>
+					</div>
+					<div class="amounttopurchase">
+						<label for="iprice"><b>{{ tuple[2] }}</b></label>
+					</div>
+					<div class="itemstatus">
+						<label for="istock"><b>Stock: {{ tuple[1] }}</b></label>
+					</div>
+				</div>
+				</p>
+				<br>
+				<br>
+				{% endfor %}
+			</div>
+			{% endif %}
+	<button class="small-button" type="submit">Show stores</button>
+	</form>
+	</body>
+</html>

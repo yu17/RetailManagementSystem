@@ -1,0 +1,48 @@
+<html>
+	<head>
+		<title>Show stores</title>
+	<link rel="stylesheet" type="text/css" href="static/style.css">
+	</head>
+	<body bgcolor="#007099">
+		<div class="topnav">
+			<div class="topnav-left">Dashboard</div>
+			<a href="create_store.html">Create Store</a>
+			<a class="active" href="show_stores.html">Show Stores</a>
+			<a href="stock_item.html">Stock Item</a>
+			<a href="trash_item.html">Trash Item</a>
+			<a href="new_item.html">Create Item</a>
+			<a href="view_analytics.html">View Analytics</a>
+			<a class="topnav-right" href="logout.html">Logout</a>
+			<div class="topnav-right">Hello, {{data['name']}} (position: {{data['position']}})</div>
+		</div>
+		<p style="color:ivory"> {{ data['message'] }} </p>
+		<form class="floating" action="/view_store.html" method="post">
+			{% if data['stores']|length == 0 %}
+			<label for="sname"><b>You have no stores. You may create one by clicking Create Store above.</b></label><br><br>
+			{% else %}
+			<p>
+			<div class="itemname">
+				<label for="iname" style="color:peru"><b>Store Name</b></label>
+			</div>
+			<div class="amounttopurchase">
+				<label for="iprice" style="color:peru"><b>See Details</b></label>
+			</div>
+			</p>
+			<br>
+			<br>
+			{% for store in data['stores'] %}
+				<p>
+				<div class="itemname">
+					<label for="iname"><b>{{ store[1] }}</b></label>
+				</div>
+				<div class="amounttopurchase">
+					<button class="small-button" name="store_id" value="{{ store[0] }}"> View </button> {# value of button is store id #}
+				</div>
+				</p>
+				<br>
+				<br>
+			{% endfor %}
+			{% endif %}
+		</form>
+	</body>
+</html>

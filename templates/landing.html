@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Home Page</title>
+		<link rel="stylesheet" type="text/css" href="static/style.css">
+	</head>
+	<body>
+    <div class="topnav">
+		<div class="topnav-left">Home Page</div>
+		<div class="topnav-right">Not Logged In</div>
+	</div>
+		<button class="tablink" onclick="openPage('Login', this, '#007099')" id="defaultOpen">Login</button>
+		<button class="tablink" onclick="openPage('Customer_Register', this, '#007099')">Customer Register</button>
+		<button class="tablink" onclick="openPage('Employee_Register', this, '#007099')">Employee Register</button>
+		<div id="Login" class="tabcontent">
+			<h2>Login.</h2>
+			<form action="/login.html" method="post">
+				<label for="uname"><b>Enter username</b></label>
+				<input placeholder="enter" name="username" type="text"><br>
+				<label for="pswd"><b>Enter password: </b></label> <input name="password" type="password"><br>
+				<label for="acct_type"><b>Account type: </b></label><br>
+				<input name="role" value="customer" type="radio">Customer
+				<input name="role" value="employee" type="radio">Employee<br>
+				<button type="submit">Login</button>
+			</form>
+		</div>
+		<div id="Customer_Register" class="tabcontent">
+			<h2>Create an customer account.</h2>
+			<form action="/register_customer.html" method="post">
+				<label for="uname"><b>Enter username:</b></label>
+				<input placeholder="enter" name="username" type="text"><br>
+				<label for="pswd"><b>Enter password:</b></label>
+				<input name="password" type="password"><br>
+				<label for="name"><b>Enter name:</b></label>
+				<input name="name" type="text"><br>
+				<label for="creditcard"><b>Enter credit card num:</b></label>
+				<input name="credit_card_num" type="text"><br>
+				<label for="address"><b>Enter street address:</b></label>
+				<input name="street_address" type="text"><br>
+				<label for="city"><b>Enter city:</b></label>
+				<input name="city" type="text"><br>
+				<label for="state"><b>Enter state:</b></label>
+				<input name="state" maxlength="2" type="text"><br>
+				<button type="submit">Create account</button>
+			</form>
+		</div>
+		<div id="Employee_Register" class="tabcontent">
+			<h2>Create an employee account.</h2>
+			<form action="/register_employee.html" method="post">
+				<label for="uname"><b>Enter username:</b></label>
+				<input placeholder="enter" name="username" type="text"><br>
+				<label for="pswd"><b>Enter password:</b></label>
+				<input name="password" type="password"><br>
+				<label for="name"><b>Enter name:</b></label>
+				<input name="name" type="text"><br>
+				<label for="acct_type"><b>Account type:</b></label>
+				<input name="position" value="retail" type="radio">Retail
+				<input name="position" value="manager" type="radio">Manager<br>
+				<button type="submit">Create account</button>
+			</form>
+		</div>
+		<br>
+		<br>
+		<script src="static/landing.js"></script>
+	</body>
+</html>
