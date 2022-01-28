@@ -1,2 +1,1 @@
-# 341_Project
-Retail Management System
+# Retail Management System
